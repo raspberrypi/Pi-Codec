@@ -16,7 +16,7 @@ state.IQaudIOCODEC {
 	control.2 {
 		iface MIXER
 		name 'Mic 2 Volume'
-		value 0
+		value 5
 		comment {
 			access 'read write'
 			type INTEGER
@@ -24,14 +24,14 @@ state.IQaudIOCODEC {
 			range '0 - 7'
 			dbmin -600
 			dbmax 3600
-			dbvalue.0 -600
+			dbvalue.0 2400
 		}
 	}
 	control.3 {
 		iface MIXER
 		name 'Aux Volume'
-		value.0 53
-		value.1 53
+		value.0 0
+		value.1 0
 		comment {
 			access 'read write'
 			type INTEGER
@@ -39,8 +39,8 @@ state.IQaudIOCODEC {
 			range '0 - 63'
 			dbmin -5400
 			dbmax 1500
-			dbvalue.0 0
-			dbvalue.1 0
+			dbvalue.0 -5400
+			dbvalue.1 -5400
 		}
 	}
 	control.4 {
@@ -62,8 +62,8 @@ state.IQaudIOCODEC {
 	control.5 {
 		iface MIXER
 		name 'ADC Volume'
-		value.0 112
-		value.1 112
+		value.0 114
+		value.1 114
 		comment {
 			access 'read write'
 			type INTEGER
@@ -71,8 +71,8 @@ state.IQaudIOCODEC {
 			range '0 - 127'
 			dbmin -9999999
 			dbmax 1125
-			dbvalue.0 0
-			dbvalue.1 0
+			dbvalue.0 150
+			dbvalue.1 150
 		}
 	}
 	control.6 {
@@ -94,8 +94,8 @@ state.IQaudIOCODEC {
 	control.7 {
 		iface MIXER
 		name 'Headphone Volume'
-		value.0 49
-		value.1 49
+		value.0 0
+		value.1 0
 		comment {
 			access 'read write'
 			type INTEGER
@@ -103,14 +103,14 @@ state.IQaudIOCODEC {
 			range '0 - 63'
 			dbmin -5700
 			dbmax 600
-			dbvalue.0 -800
-			dbvalue.1 -800
+			dbvalue.0 -5700
+			dbvalue.1 -5700
 		}
 	}
 	control.8 {
 		iface MIXER
 		name 'Lineout Volume'
-		value 51
+		value 48
 		comment {
 			access 'read write'
 			type INTEGER
@@ -118,7 +118,7 @@ state.IQaudIOCODEC {
 			range '0 - 63'
 			dbmin -4800
 			dbmax 1500
-			dbvalue.0 300
+			dbvalue.0 0
 		}
 	}
 	control.9 {
@@ -318,7 +318,7 @@ state.IQaudIOCODEC {
 	control.24 {
 		iface MIXER
 		name 'Mic 2 Switch'
-		value false
+		value true
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -328,8 +328,8 @@ state.IQaudIOCODEC {
 	control.25 {
 		iface MIXER
 		name 'Aux Switch'
-		value.0 true
-		value.1 true
+		value.0 false
+		value.1 false
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -361,8 +361,8 @@ state.IQaudIOCODEC {
 	control.28 {
 		iface MIXER
 		name 'Headphone Switch'
-		value.0 true
-		value.1 true
+		value.0 false
+		value.1 false
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -442,8 +442,8 @@ state.IQaudIOCODEC {
 	control.35 {
 		iface MIXER
 		name 'Aux Gain Ramping Switch'
-		value.0 true
-		value.1 true
+		value.0 false
+		value.1 false
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -486,8 +486,8 @@ state.IQaudIOCODEC {
 	control.39 {
 		iface MIXER
 		name 'Headphone Gain Ramping Switch'
-		value.0 true
-		value.1 true
+		value.0 false
+		value.1 false
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -591,8 +591,8 @@ state.IQaudIOCODEC {
 	control.48 {
 		iface MIXER
 		name 'DAC Mono Switch'
-		value.0 false
-		value.1 false
+		value.0 true
+		value.1 true
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -851,6 +851,46 @@ state.IQaudIOCODEC {
 	}
 	control.66 {
 		iface MIXER
+		name 'HP Jack Switch'
+		value true
+		comment {
+			access 'read write'
+			type BOOLEAN
+			count 1
+		}
+	}
+	control.67 {
+		iface MIXER
+		name 'MIC Jack Switch'
+		value true
+		comment {
+			access 'read write'
+			type BOOLEAN
+			count 1
+		}
+	}
+	control.68 {
+		iface MIXER
+		name 'Onboard MIC Switch'
+		value true
+		comment {
+			access 'read write'
+			type BOOLEAN
+			count 1
+		}
+	}
+	control.69 {
+		iface MIXER
+		name 'AUX Jack Switch'
+		value false
+		comment {
+			access 'read write'
+			type BOOLEAN
+			count 1
+		}
+	}
+	control.70 {
+		iface MIXER
 		name 'Mic 1 Amp Source MUX'
 		value Differential
 		comment {
@@ -862,7 +902,7 @@ state.IQaudIOCODEC {
 			item.2 MIC_N
 		}
 	}
-	control.67 {
+	control.71 {
 		iface MIXER
 		name 'Mic 2 Amp Source MUX'
 		value Differential
@@ -875,17 +915,17 @@ state.IQaudIOCODEC {
 			item.2 MIC_N
 		}
 	}
-	control.68 {
+	control.72 {
 		iface MIXER
 		name 'Mixin Left Aux Left Switch'
-		value true
+		value false
 		comment {
 			access 'read write'
 			type BOOLEAN
 			count 1
 		}
 	}
-	control.69 {
+	control.73 {
 		iface MIXER
 		name 'Mixin Left Mic 1 Switch'
 		value false
@@ -895,17 +935,17 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.70 {
+	control.74 {
 		iface MIXER
 		name 'Mixin Left Mic 2 Switch'
-		value false
+		value true
 		comment {
 			access 'read write'
 			type BOOLEAN
 			count 1
 		}
 	}
-	control.71 {
+	control.75 {
 		iface MIXER
 		name 'Mixin Left Mixin Right Switch'
 		value false
@@ -915,19 +955,9 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.72 {
+	control.76 {
 		iface MIXER
 		name 'Mixin Right Aux Right Switch'
-		value true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.73 {
-		iface MIXER
-		name 'Mixin Right Mic 2 Switch'
 		value false
 		comment {
 			access 'read write'
@@ -935,7 +965,17 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.74 {
+	control.77 {
+		iface MIXER
+		name 'Mixin Right Mic 2 Switch'
+		value true
+		comment {
+			access 'read write'
+			type BOOLEAN
+			count 1
+		}
+	}
+	control.78 {
 		iface MIXER
 		name 'Mixin Right Mic 1 Switch'
 		value false
@@ -945,7 +985,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.75 {
+	control.79 {
 		iface MIXER
 		name 'Mixin Right Mixin Left Switch'
 		value false
@@ -955,7 +995,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.76 {
+	control.80 {
 		iface MIXER
 		name 'DAI Left Source MUX'
 		value 'ADC Left'
@@ -969,7 +1009,7 @@ state.IQaudIOCODEC {
 			item.3 'DAI Input Right'
 		}
 	}
-	control.77 {
+	control.81 {
 		iface MIXER
 		name 'DAI Right Source MUX'
 		value 'ADC Right'
@@ -983,7 +1023,7 @@ state.IQaudIOCODEC {
 			item.3 'DAI Input Right'
 		}
 	}
-	control.78 {
+	control.82 {
 		iface MIXER
 		name 'DAC Left Source MUX'
 		value 'DAI Input Left'
@@ -997,7 +1037,7 @@ state.IQaudIOCODEC {
 			item.3 'DAI Input Right'
 		}
 	}
-	control.79 {
+	control.83 {
 		iface MIXER
 		name 'DAC Right Source MUX'
 		value 'DAI Input Right'
@@ -1011,7 +1051,7 @@ state.IQaudIOCODEC {
 			item.3 'DAI Input Right'
 		}
 	}
-	control.80 {
+	control.84 {
 		iface MIXER
 		name 'Mixout Left Aux Left Switch'
 		value false
@@ -1021,7 +1061,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.81 {
+	control.85 {
 		iface MIXER
 		name 'Mixout Left Mixin Left Switch'
 		value false
@@ -1031,7 +1071,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.82 {
+	control.86 {
 		iface MIXER
 		name 'Mixout Left Mixin Right Switch'
 		value false
@@ -1041,7 +1081,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.83 {
+	control.87 {
 		iface MIXER
 		name 'Mixout Left DAC Left Switch'
 		value true
@@ -1051,7 +1091,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.84 {
+	control.88 {
 		iface MIXER
 		name 'Mixout Left Aux Left Invert Switch'
 		value false
@@ -1061,7 +1101,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.85 {
+	control.89 {
 		iface MIXER
 		name 'Mixout Left Mixin Left Invert Switch'
 		value false
@@ -1071,7 +1111,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.86 {
+	control.90 {
 		iface MIXER
 		name 'Mixout Left Mixin Right Invert Switch'
 		value false
@@ -1081,7 +1121,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.87 {
+	control.91 {
 		iface MIXER
 		name 'Mixout Right Aux Right Switch'
 		value false
@@ -1091,7 +1131,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.88 {
+	control.92 {
 		iface MIXER
 		name 'Mixout Right Mixin Right Switch'
 		value false
@@ -1101,7 +1141,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.89 {
+	control.93 {
 		iface MIXER
 		name 'Mixout Right Mixin Left Switch'
 		value false
@@ -1111,7 +1151,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.90 {
+	control.94 {
 		iface MIXER
 		name 'Mixout Right DAC Right Switch'
 		value true
@@ -1121,7 +1161,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.91 {
+	control.95 {
 		iface MIXER
 		name 'Mixout Right Aux Right Invert Switch'
 		value false
@@ -1131,7 +1171,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.92 {
+	control.96 {
 		iface MIXER
 		name 'Mixout Right Mixin Right Invert Switch'
 		value false
@@ -1141,7 +1181,7 @@ state.IQaudIOCODEC {
 			count 1
 		}
 	}
-	control.93 {
+	control.97 {
 		iface MIXER
 		name 'Mixout Right Mixin Left Invert Switch'
 		value false
