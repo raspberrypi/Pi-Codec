@@ -16,4 +16,5 @@ where `<filename>` is one of the following:
     Codec_Zero_AUXIN_record_and_HP_playback.state
     Codec_Zero_OnboardMIC_record_and_SPK_playback.state
     Codec_Zero_Playback_only.state
+    Codec_Zero_Playback_with_OnboardMIC.state
     Codec_Zero_StereoMIC_record_and_HP_playback.state
